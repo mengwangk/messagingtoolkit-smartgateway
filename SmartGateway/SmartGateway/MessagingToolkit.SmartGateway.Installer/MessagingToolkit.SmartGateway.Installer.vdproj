@@ -130,6 +130,12 @@
         "Entry"
         {
         "MsmKey" = "8:_442C524036766327452DF52B50FACDD0"
+        "OwnerKey" = "8:_2F06FD5F6D794E51ACA7F747C8CE9EB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_442C524036766327452DF52B50FACDD0"
         "OwnerKey" = "8:_A2521BDD981747AEA7CD2BBCCAE6064F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -197,6 +203,12 @@
         {
         "MsmKey" = "8:_7DC1018665DF2F5AD8AEC34A42E44535"
         "OwnerKey" = "8:_5922A3B3DC354D7D9850D14A15DAC047"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7DC1018665DF2F5AD8AEC34A42E44535"
+        "OwnerKey" = "8:_2F06FD5F6D794E51ACA7F747C8CE9EB5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1682,7 +1694,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MessagingToolkit SmartGateway"
         "ProductCode" = "8:{1131D3EA-A79B-44A7-85C8-639A1466A89B}"
-        "PackageCode" = "8:{52CAD5CD-323C-4618-B6B4-16A47C4FBDD1}"
+        "PackageCode" = "8:{7C41F93E-8361-468D-B3A1-4196CD588A59}"
         "UpgradeCode" = "8:{95AF2DFC-C2FF-499A-A668-50F8B6D78142}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
