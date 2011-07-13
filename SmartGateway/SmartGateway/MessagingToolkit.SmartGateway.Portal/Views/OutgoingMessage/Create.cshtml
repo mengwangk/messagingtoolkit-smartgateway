@@ -1,0 +1,228 @@
+﻿@model MessagingToolkit.SmartGateway.Portal.OutgoingMessage
+
+@{
+    ViewBag.Title = "Send Message";
+}
+
+<h2>Send Message</h2>
+
+@{
+Html.EnableClientValidation();
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Create a new message</legend>
+
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Originator)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Originator)
+            @Html.ValidationMessageFor(model => model.Originator)
+        </div>
+
+        -->
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recipient)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Recipient)
+            @Html.ValidationMessageFor(model => model.Recipient)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.MessageType, ViewBag.MessageTypes as SelectList)
+            @Html.ValidationMessageFor(model => model.MessageType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageFormat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MessageFormat)
+            @Html.ValidationMessageFor(model => model.MessageFormat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Priority)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Priority)
+            @Html.ValidationMessageFor(model => model.Priority)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Message)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Message)
+            @Html.ValidationMessageFor(model => model.Message)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ScheduledDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ScheduledDate)
+            @Html.ValidationMessageFor(model => model.ScheduledDate)
+        </div>
+
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+        -->
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageClass)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MessageClass)
+            @Html.ValidationMessageFor(model => model.MessageClass)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SrcPort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SrcPort)
+            @Html.ValidationMessageFor(model => model.SrcPort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DestPort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DestPort)
+            @Html.ValidationMessageFor(model => model.DestPort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StatusReport)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StatusReport)
+            @Html.ValidationMessageFor(model => model.StatusReport)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapUrl)
+            @Html.ValidationMessageFor(model => model.WapUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapExpiryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapExpiryDate)
+            @Html.ValidationMessageFor(model => model.WapExpiryDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapCreateDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapCreateDate)
+            @Html.ValidationMessageFor(model => model.WapCreateDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapSignal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapSignal)
+            @Html.ValidationMessageFor(model => model.WapSignal)
+        </div>
+
+        <!--
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastUpdate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastUpdate)
+            @Html.ValidationMessageFor(model => model.LastUpdate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RefNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RefNo)
+            @Html.ValidationMessageFor(model => model.RefNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SentDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SentDate)
+            @Html.ValidationMessageFor(model => model.SentDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Errors)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Errors)
+            @Html.ValidationMessageFor(model => model.Errors)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GatewayId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GatewayId)
+            @Html.ValidationMessageFor(model => model.GatewayId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateDate)
+            @Html.ValidationMessageFor(model => model.CreateDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GroupId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GroupId)
+            @Html.ValidationMessageFor(model => model.GroupId)
+        </div>
+
+        -->
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

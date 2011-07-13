@@ -1,0 +1,108 @@
+﻿@model MessagingToolkit.SmartGateway.Portal.IncomingMessage
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>IncomingMessage</legend>
+
+    <div class="display-label">Originator</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Originator)
+    </div>
+
+    <div class="display-label">OriginatorReceivedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OriginatorReceivedDate)
+    </div>
+
+    <div class="display-label">Timezone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Timezone)
+    </div>
+
+    <div class="display-label">Message</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">MessageType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageType)
+    </div>
+
+    <div class="display-label">DeliveryStatus</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeliveryStatus)
+    </div>
+
+    <div class="display-label">ReceivedDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceivedDate)
+    </div>
+
+    <div class="display-label">ValidityTimeStamp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValidityTimeStamp)
+    </div>
+
+    <div class="display-label">OriginatorRefNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OriginatorRefNo)
+    </div>
+
+    <div class="display-label">MessageStatusType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageStatusType)
+    </div>
+
+    <div class="display-label">SrcPort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SrcPort)
+    </div>
+
+    <div class="display-label">DestPort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DestPort)
+    </div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">RawMessage</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RawMessage)
+    </div>
+
+    <div class="display-label">GatewayId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GatewayId)
+    </div>
+
+    <div class="display-label">LastUpdate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdate)
+    </div>
+
+    <div class="display-label">CreateDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreateDate)
+    </div>
+
+    <div class="display-label">Indexes</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Indexes)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

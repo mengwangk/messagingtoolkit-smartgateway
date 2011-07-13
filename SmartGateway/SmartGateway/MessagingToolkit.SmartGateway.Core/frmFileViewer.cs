@@ -1,0 +1,71 @@
+﻿using System;
+//===============================================================================
+// OSML - Open Source Messaging Library
+//
+//===============================================================================
+// Copyright © TWIT88.COM.  All rights reserved.
+//
+// This file is part of Open Source Messaging Library.
+//
+// Open Source Messaging Library is free software: you can redistribute it 
+// and/or modify it under the terms of the GNU General Public License version 3.
+//
+// Open Source Messaging Library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this software.  If not, see <http://www.gnu.org/licenses/>.
+//===============================================================================
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace MessagingToolkit.SmartGateway.Core
+{
+    /// <summary>
+    /// File monitoring form
+    /// </summary>
+    public partial class frmFileViewer : Form
+    {
+        private string fileName = string.Empty;
+
+        public frmFileViewer()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Handles the Load event of the frmFileViewer control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void frmFileViewer_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>The name of the file.</value>
+        public string FileName 
+        {
+            get
+            {
+                return this.fileName;
+            }
+            set
+            {
+                this.fileName = value;
+                this.logMonitor1.FileName = value;
+            }        
+        }
+    }
+}

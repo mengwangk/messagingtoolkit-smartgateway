@@ -1,0 +1,31 @@
+﻿@using MessagingToolkit.SmartGateway.Portal;
+@model Nullable<System.DateTime>
+@if (Model.HasValue)
+{
+   @Html.TextBox("", String.Format("{0:yyyy-MM-dd HH:mm}", Model.Value), new { @class = "textbox", @style = "width:200px;" })
+}
+else
+{
+   @Html.TextBox("", String.Format("{0:yyyy-MM-dd HH:mm}", DateTime.Now), new { @class = "textbox", @style = "width:200px;" })
+}
+
+@{
+    string name = ViewData.TemplateInfo.HtmlFieldPrefix;
+    string id = name.Replace(".", "_");
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@id").datepicker
+            ({
+                dateFormat: 'yy-mm-dd',
+                showStatus: true,
+                showWeeks: true,
+                highlightWeek: true,
+                numberOfMonths: 1,
+                showAnim: "scale",
+                showOptions: {
+                    origin: ["top", "left"]
+                }
+            });
+    });
+</script>

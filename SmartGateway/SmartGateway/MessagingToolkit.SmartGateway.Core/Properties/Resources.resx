@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\connect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgNameRequired" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="hide_me" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hide_me.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="webinterface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\webinterface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="message_reply" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\message_reply.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgApplySettings" xml:space="preserve">
+    <value>Apply settings (Manual restart required) ?</value>
+  </data>
+  <data name="groups" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\groups.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgLoginNameRequired" xml:space="preserve">
+    <value>Login name is required</value>
+  </data>
+  <data name="contacts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\contacts.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgUserSaved" xml:space="preserve">
+    <value>User is saved successfully</value>
+  </data>
+  <data name="outbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tool.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgDuplicateComPort" xml:space="preserve">
+    <value>{0} is already in use. Continue with saving?</value>
+  </data>
+  <data name="email_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_delete1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgAdminGroupNameNotAllowed" xml:space="preserve">
+    <value>Administrator group name is not allowed</value>
+  </data>
+  <data name="MsgURLRequired" xml:space="preserve">
+    <value>URL is required</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>MessagingToolkit SmartGateway</value>
+  </data>
+  <data name="MsgAdminUserNameNotAllowed" xml:space="preserve">
+    <value>Administrator user name is not allowed</value>
+  </data>
+  <data name="MsgLicenseKeyRequired" xml:space="preserve">
+    <value>License key cannot be empty</value>
+  </data>
+  <data name="users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgShowMessageDetails" xml:space="preserve">
+    <value>Show Message Details</value>
+  </data>
+  <data name="MsgNoChannelSelected" xml:space="preserve">
+    <value>No channel is selected</value>
+  </data>
+  <data name="folder_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder-horizontal.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgSingleMessageCreated" xml:space="preserve">
+    <value>1 message is created successfully</value>
+  </data>
+  <data name="messenger_app" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\messenger_app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgUniqueNameRequired" xml:space="preserve">
+    <value>A unique name must be specified</value>
+  </data>
+  <data name="MsgConfirmDeleteGroup" xml:space="preserve">
+    <value>Delete group - {0} ?</value>
+  </data>
+  <data name="MsgConfirmDeleteMessage" xml:space="preserve">
+    <value>Confirm to delete message?</value>
+  </data>
+  <data name="services" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\services.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="email_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_forward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgGatewayNameAlreadyExists" xml:space="preserve">
+    <value>Gateway name {0} is already in use</value>
+  </data>
+  <data name="MsgLoginNameNotUnique" xml:space="preserve">
+    <value>Login name is not unique</value>
+  </data>
+  <data name="MsgTypeSms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="MsgConfirmDeleteGateway" xml:space="preserve">
+    <value>Confirm to delete gateway [{0}]?</value>
+  </data>
+  <data name="MsgContentRequired" xml:space="preserve">
+    <value>Message content is required</value>
+  </data>
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgGroupSaved" xml:space="preserve">
+    <value>Group is saved successfully</value>
+  </data>
+  <data name="MsgPasswordNotMatched" xml:space="preserve">
+    <value>The entered passwords do not match</value>
+  </data>
+  <data name="MsgGroupNameCannotEdit" xml:space="preserve">
+    <value>Administrator group cannot be modified</value>
+  </data>
+  <data name="MsgNoMessageToDisplay" xml:space="preserve">
+    <value>No message to display</value>
+  </data>
+  <data name="MsgHideMessageDetails" xml:space="preserve">
+    <value>Hide Message Details</value>
+  </data>
+  <data name="manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\manual.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgGatewayMustBeSelected" xml:space="preserve">
+    <value>At least 1 gateway must be selected</value>
+  </data>
+  <data name="AnyChannels" xml:space="preserve">
+    <value>Any Available Channel - *</value>
+  </data>
+  <data name="MsgSaveChangesBeforeExit" xml:space="preserve">
+    <value>Save changes before exiting?</value>
+  </data>
+  <data name="MsgMessageDeleted" xml:space="preserve">
+    <value>Message is deleted from storage</value>
+  </data>
+  <data name="email_reply" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email_reply.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="license" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\license.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="system" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\system.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ServiceAttempStart" xml:space="preserve">
+    <value>Attempting to start</value>
+  </data>
+  <data name="ProtocolTypeGsm" xml:space="preserve">
+    <value>GSM</value>
+  </data>
+  <data name="MsgGroupNameNotUnique" xml:space="preserve">
+    <value>Group name must be unique</value>
+  </data>
+  <data name="MsgGatewayConfigSaved" xml:space="preserve">
+    <value>Gateway configuration is saved successfully</value>
+  </data>
+  <data name="MsgLicenseeRequired" xml:space="preserve">
+    <value>Licensee cannot be empty</value>
+  </data>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ServiceAlreadyStopped" xml:space="preserve">
+    <value>Service is already stopped</value>
+  </data>
+  <data name="mobile_phone_cast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mobile-phone-cast.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgSenderEmailRequired" xml:space="preserve">
+    <value>Sender email is required</value>
+  </data>
+  <data name="MsgAutoResponseTextRequired" xml:space="preserve">
+    <value>Auto response text is required</value>
+  </data>
+  <data name="MsgSmtpServerRequired" xml:space="preserve">
+    <value>SMTP server is required</value>
+  </data>
+  <data name="messages" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\messages.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ServiceAttemptStop" xml:space="preserve">
+    <value>Attempting to stop</value>
+  </data>
+  <data name="MsgEmailConfigSaved" xml:space="preserve">
+    <value>Email settings are saved successfully</value>
+  </data>
+  <data name="MsgConfirmResetMessageSettings" xml:space="preserve">
+    <value>Reset message settings?</value>
+  </data>
+  <data name="MsgRecipientsRequired" xml:space="preserve">
+    <value>At least 1 recipient must be specified</value>
+  </data>
+  <data name="MsgNow" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="MsgEmailSubjectRequired" xml:space="preserve">
+    <value>Email subject is required</value>
+  </data>
+  <data name="MsgMultipleMessagesCreated" xml:space="preserve">
+    <value>{0} messages are created successfully</value>
+  </data>
+  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgEmailAddressRequired" xml:space="preserve">
+    <value>Email address cannot be empty</value>
+  </data>
+  <data name="exit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgMessageArchived" xml:space="preserve">
+    <value>Message is archived</value>
+  </data>
+  <data name="newmessage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newmessage2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ScheduledNow" xml:space="preserve">
+    <value>Now</value>
+  </data>
+  <data name="MsgConfirmDeleteUser" xml:space="preserve">
+    <value>Delete user - {0}?</value>
+  </data>
+  <data name="MsgPasswordRequired" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="MsgUserCannotEdit" xml:space="preserve">
+    <value>Administrator user cannot be modified</value>
+  </data>
+  <data name="newmessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newmessage1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgLicenseInformationSaved" xml:space="preserve">
+    <value>Licensing information is saved</value>
+  </data>
+  <data name="MsgGatewayStarting" xml:space="preserve">
+    <value>Gateway is being started now</value>
+  </data>
+  <data name="MsgSmtpInformationRequired" xml:space="preserve">
+    <value>SMTP user name and password are required</value>
+  </data>
+  <data name="channel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\channel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_sidebar_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-sidebar-list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="archive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\archive.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgResetSettings" xml:space="preserve">
+    <value>Reset all system settings?</value>
+  </data>
+  <data name="messenger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\messenger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsgWebServerPathRequired" xml:space="preserve">
+    <value>Physical path to the web application is required</value>
+  </data>
+  <data name="MsgWebServerPortRequired" xml:space="preserve">
+    <value>Web server port must be greater than 0</value>
+  </data>
+  <data name="MsgWebServerVirtualPathRequired" xml:space="preserve">
+    <value>Virtual path is required</value>
+  </data>
+  <data name="MsgMessengerNameAlreadyExists" xml:space="preserve">
+    <value>Messenger name {0} is already in use</value>
+  </data>
+  <data name="MsgDbTableRequired" xml:space="preserve">
+    <value>Database table column name is required</value>
+  </data>
+  <data name="MsgDbUserNameRequired" xml:space="preserve">
+    <value>Database user name is required</value>
+  </data>
+  <data name="MsgDbUserPasswordRequired" xml:space="preserve">
+    <value>Database user password is required</value>
+  </data>
+  <data name="MsgDestNoColNameRequired" xml:space="preserve">
+    <value>Destination number column name is required</value>
+  </data>
+  <data name="MsgDsnRequired" xml:space="preserve">
+    <value>DSN is required</value>
+  </data>
+  <data name="MsgMsgColDefaultMsgRequired" xml:space="preserve">
+    <value>Message column name or default text message is required</value>
+  </data>
+  <data name="MsgStatusColNameRequired" xml:space="preserve">
+    <value>Status column name is required</value>
+  </data>
+  <data name="MsgUniqMsgIdColNameRequired" xml:space="preserve">
+    <value>Unique message id column name is required</value>
+  </data>
+  <data name="MsgMessengerConfigSaved" xml:space="preserve">
+    <value>Messenger configuration is saved successfully</value>
+  </data>
+  <data name="MsgConfirmDeleteMessenger" xml:space="preserve">
+    <value>Confirm to delete messenger [{0}]?</value>
+  </data>
+  <data name="MsgMessengerMustBeSelected" xml:space="preserve">
+    <value>At least 1 messenger must be selected</value>
+  </data>
+  <data name="MsgNoMessengerSelected" xml:space="preserve">
+    <value>No messenger is selected</value>
+  </data>
+  <data name="ServiceAlreadyStarted" xml:space="preserve">
+    <value>Service is already started</value>
+  </data>
+</root>

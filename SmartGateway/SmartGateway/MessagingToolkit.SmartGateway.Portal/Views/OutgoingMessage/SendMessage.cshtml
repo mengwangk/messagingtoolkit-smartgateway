@@ -1,0 +1,149 @@
+﻿@using MessagingToolkit.SmartGateway.Portal.ViewModels
+@using MessagingToolkit.SmartGateway.Portal
+@model OutgoingMessageViewModel
+
+@{
+    ViewBag.Title = "Send Message";
+}
+
+<h2>Send Message</h2>
+
+@{
+Html.EnableClientValidation();
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Create a new message</legend>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Channel)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Channel, DbLookup.Instance.Channels)
+            @Html.ValidationMessageFor(model => model.Channel)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recipient)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Recipient)
+            @Html.ValidationMessageFor(model => model.Recipient)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.MessageType, PageReference.MessageTypes)
+            @Html.ValidationMessageFor(model => model.MessageType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageFormat)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.MessageFormat, PageReference.MessageFormat)         
+            @Html.ValidationMessageFor(model => model.MessageFormat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Priority)
+        </div>
+        <div class="editor-field">
+             @Html.DropDownListFor(model => model.Priority, PageReference.MessagePriority) 
+            @Html.ValidationMessageFor(model => model.Priority)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Message)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Message, new { @style = "width:300px;" })
+            @Html.ValidationMessageFor(model => model.Message)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ScheduledDate)
+        </div>
+
+        <div class="editor-field">            
+            @Html.EditorFor(model => model.ScheduledDate)
+            @Html.ValidationMessageFor(model => model.ScheduledDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MessageClass)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.MessageClass, PageReference.MessageClass)      
+            @Html.ValidationMessageFor(model => model.MessageClass)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SrcPort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SrcPort)
+            @Html.ValidationMessageFor(model => model.SrcPort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DestPort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DestPort)
+            @Html.ValidationMessageFor(model => model.DestPort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StatusReport)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.StatusReport, PageReference.StatusReport)      
+            @Html.ValidationMessageFor(model => model.StatusReport)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapUrl)
+            @Html.ValidationMessageFor(model => model.WapUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapExpiryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapExpiryDate)
+            @Html.ValidationMessageFor(model => model.WapExpiryDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapCreateDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WapCreateDate)
+            @Html.ValidationMessageFor(model => model.WapCreateDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WapSignal)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.WapSignal, PageReference.WapSignal)      
+            @Html.ValidationMessageFor(model => model.WapSignal)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

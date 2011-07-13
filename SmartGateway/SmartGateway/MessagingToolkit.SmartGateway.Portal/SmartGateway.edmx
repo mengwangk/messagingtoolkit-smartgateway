@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SmartGatewayModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SmartGatewayModelStoreContainer">
+          <EntitySet Name="AppConfig" EntityType="SmartGatewayModel.Store.AppConfig" store:Type="Tables" />
+          <EntitySet Name="DbMessenger" EntityType="SmartGatewayModel.Store.DbMessenger" store:Type="Tables" />
+          <EntitySet Name="EmailConfig" EntityType="SmartGatewayModel.Store.EmailConfig" store:Type="Tables" store:Name="EmailConfig">
+            <DefiningQuery>SELECT 
+      [EmailConfig].[SenderEmail] AS [SenderEmail], 
+      [EmailConfig].[MailSubject] AS [MailSubject], 
+      [EmailConfig].[SmtpServer] AS [SmtpServer], 
+      [EmailConfig].[Authentication] AS [Authentication], 
+      [EmailConfig].[UserName] AS [UserName], 
+      [EmailConfig].[UserPassword] AS [UserPassword]
+      FROM [EmailConfig] AS [EmailConfig]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GatewayConfig" EntityType="SmartGatewayModel.Store.GatewayConfig" store:Type="Tables" />
+          <EntitySet Name="IncomingCall" EntityType="SmartGatewayModel.Store.IncomingCall" store:Type="Tables" />
+          <EntitySet Name="IncomingMessage" EntityType="SmartGatewayModel.Store.IncomingMessage" store:Type="Tables" />
+          <EntitySet Name="OutgoingCall" EntityType="SmartGatewayModel.Store.OutgoingCall" store:Type="Tables" />
+          <EntitySet Name="OutgoingMessage" EntityType="SmartGatewayModel.Store.OutgoingMessage" store:Type="Tables" />
+          <EntitySet Name="Privilege" EntityType="SmartGatewayModel.Store.Privilege" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="SmartGatewayModel.Store.Role" store:Type="Tables" />
+          <EntitySet Name="RolePrivilegeMap" EntityType="SmartGatewayModel.Store.RolePrivilegeMap" store:Type="Tables" store:Name="RolePrivilegeMap">
+            <DefiningQuery>SELECT 
+      [RolePrivilegeMap].[RoleId] AS [RoleId], 
+      [RolePrivilegeMap].[PrivilegeId] AS [PrivilegeId]
+      FROM [RolePrivilegeMap] AS [RolePrivilegeMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TreeMenu" EntityType="SmartGatewayModel.Store.TreeMenu" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="SmartGatewayModel.Store.User" store:Type="Tables" />
+          <EntitySet Name="UserRoleMap" EntityType="SmartGatewayModel.Store.UserRoleMap" store:Type="Tables" store:Name="UserRoleMap">
+            <DefiningQuery>SELECT 
+      [UserRoleMap].[UserId] AS [UserId], 
+      [UserRoleMap].[RoleId] AS [RoleId]
+      FROM [UserRoleMap] AS [UserRoleMap]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="AppConfig">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Module" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" />
+          <Property Name="Module" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Configurable" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbMessenger">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" />
+          <Property Name="Dsn" Type="nvarchar" Nullable="false" />
+          <Property Name="DbTable" Type="nvarchar" Nullable="false" />
+          <Property Name="PollingInterval" Type="int" Nullable="false" />
+          <Property Name="RequiredAuth" Type="bit" Nullable="false" />
+          <Property Name="DbUserName" Type="nvarchar" />
+          <Property Name="DbUserPassword" Type="nvarchar" />
+          <Property Name="UniqMsgIdColName" Type="nvarchar" Nullable="false" />
+          <Property Name="UniqMsgIdColDataType" Type="nvarchar" Nullable="false" />
+          <Property Name="MsgColName" Type="nvarchar" />
+          <Property Name="DestNoColName" Type="nvarchar" Nullable="false" />
+          <Property Name="MsgPriorityColName" Type="nvarchar" />
+          <Property Name="MsgAlertColName" Type="nvarchar" />
+          <Property Name="DefaultMsgPriority" Type="nvarchar" />
+          <Property Name="DefaultTextMsg" Type="nvarchar" />
+          <Property Name="DeleteAfterSending" Type="bit" Nullable="false" />
+          <Property Name="StatusColName" Type="nvarchar" />
+          <Property Name="StatusTimestampColName" Type="nvarchar" />
+          <Property Name="StatusColNewValue" Type="nvarchar" />
+          <Property Name="StatusColUpdateSuccessVal" Type="nvarchar" />
+          <Property Name="StatusColUpdateFailedValue" Type="nvarchar" />
+          <Property Name="StatusColUpdateSendingValue" Type="nvarchar" />
+          <Property Name="AutoStart" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.EmailConfig' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EmailConfig">
+          <Key>
+            <PropertyRef Name="SenderEmail" />
+            <PropertyRef Name="MailSubject" />
+            <PropertyRef Name="SmtpServer" />
+          </Key>
+          <Property Name="SenderEmail" Type="nvarchar" Nullable="false" />
+          <Property Name="MailSubject" Type="nvarchar" Nullable="false" />
+          <Property Name="SmtpServer" Type="nvarchar" Nullable="false" />
+          <Property Name="Authentication" Type="bit" />
+          <Property Name="UserName" Type="nvarchar" />
+          <Property Name="UserPassword" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="GatewayConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" />
+          <Property Name="ComPort" Type="nvarchar" Nullable="false" />
+          <Property Name="BaudRate" Type="nvarchar" Nullable="false" />
+          <Property Name="DataBits" Type="nvarchar" Nullable="false" />
+          <Property Name="Parity" Type="nvarchar" Nullable="false" />
+          <Property Name="StopBits" Type="nvarchar" Nullable="false" />
+          <Property Name="Handshake" Type="nvarchar" Nullable="false" />
+          <Property Name="OwnNumber" Type="nvarchar" />
+          <Property Name="Smsc" Type="nvarchar" />
+          <Property Name="UseSimSmsc" Type="bit" />
+          <Property Name="Pin" Type="nvarchar" />
+          <Property Name="MessageValidity" Type="nvarchar" />
+          <Property Name="LongMessageOption" Type="nvarchar" />
+          <Property Name="MessageMemory" Type="nvarchar" />
+          <Property Name="Functions" Type="integer" />
+          <Property Name="LogSettings" Type="nvarchar" />
+          <Property Name="ClearLogOnConnect" Type="bit" />
+          <Property Name="AutoConnect" Type="bit" />
+          <Property Name="Initialize" Type="bit" />
+          <Property Name="CommandTimeout" Type="integer" />
+          <Property Name="ReadTimeout" Type="integer" />
+          <Property Name="CommandDelay" Type="integer" />
+          <Property Name="SendRetry" Type="integer" />
+          <Property Name="SendDelay" Type="integer" />
+          <Property Name="RequestStatusReport" Type="bit" />
+          <Property Name="SignalRefreshInterval" Type="integer" />
+          <Property Name="AutoResponseCall" Type="bit" />
+          <Property Name="AutoResponseCallText" Type="nvarchar" />
+          <Property Name="AutoArchiveLog" Type="bit" />
+          <Property Name="AutoArchiveLogInterval" Type="integer" />
+          <Property Name="ArchiveOldMessageInterval" Type="integer" />
+          <Property Name="ForwardArchivedMessage" Type="bit" />
+          <Property Name="ForwardEmail" Type="nvarchar" />
+          <Property Name="DeleteArchivedMessage" Type="bit" />
+          <Property Name="DeleteArchivedMessageInterval" Type="integer" />
+          <Property Name="DeleteAfterRetrieve" Type="bit" />
+        </EntityType>
+        <EntityType Name="IncomingCall">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CallDate" Type="datetime" Nullable="false" />
+          <Property Name="CallerId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="GatewayId" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IncomingMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" />
+          <Property Name="Originator" Type="nvarchar" Nullable="false" />
+          <Property Name="OriginatorReceivedDate" Type="datetime" />
+          <Property Name="Timezone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar" Nullable="false" />
+          <Property Name="MessageType" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DeliveryStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="ReceivedDate" Type="datetime" Nullable="false" />
+          <Property Name="ValidityTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="OriginatorRefNo" Type="integer" Nullable="false" />
+          <Property Name="MessageStatusType" Type="nvarchar" MaxLength="100" />
+          <Property Name="SrcPort" Type="integer" Nullable="false" />
+          <Property Name="DestPort" Type="integer" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="RawMessage" Type="nvarchar" />
+          <Property Name="GatewayId" Type="nvarchar" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="Indexes" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OutgoingCall">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CallDate" Type="datetime" Nullable="false" />
+          <Property Name="CallerId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="GatewayId" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OutgoingMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" />
+          <Property Name="Originator" Type="nvarchar" />
+          <Property Name="Recipient" Type="nvarchar" Nullable="false" />
+          <Property Name="MessageType" Type="nvarchar" Nullable="false" />
+          <Property Name="MessageFormat" Type="nvarchar" Nullable="false" />
+          <Property Name="Priority" Type="nvarchar" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" Nullable="false" />
+          <Property Name="ScheduledDate" Type="datetime" />
+          <Property Name="Quantity" Type="integer" Nullable="false" />
+          <Property Name="MessageClass" Type="nvarchar" Nullable="false" />
+          <Property Name="SrcPort" Type="integer" Nullable="false" />
+          <Property Name="DestPort" Type="integer" Nullable="false" />
+          <Property Name="StatusReport" Type="nvarchar" />
+          <Property Name="WapUrl" Type="nvarchar" />
+          <Property Name="WapExpiryDate" Type="datetime" />
+          <Property Name="WapCreateDate" Type="datetime" />
+          <Property Name="WapSignal" Type="nvarchar" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="RefNo" Type="nvarchar" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" />
+          <Property Name="Errors" Type="nvarchar" />
+          <Property Name="GatewayId" Type="nvarchar" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="GroupId" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="Privilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Desc" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Desc" Type="nvarchar" MaxLength="50" />
+          <Property Name="CanBeDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.RolePrivilegeMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="RolePrivilegeMap">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="RoleId" Type="integer" Nullable="false" />
+          <Property Name="PrivilegeId" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TreeMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImageIndex" Type="integer" />
+          <Property Name="SelectedImageIndex" Type="integer" />
+          <Property Name="ParentId" Type="integer" />
+          <Property Name="ActionClass" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sequence" Type="integer" />
+          <Property Name="Module" Type="nvarchar" MaxLength="255" />
+          <Property Name="Enabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommonName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mobtel" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CanBeDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.UserRoleMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="UserRoleMap">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="integer" Nullable="false" />
+          <Property Name="RoleId" Type="integer" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartGatewayModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SmartGatewayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppConfigs" EntityType="SmartGatewayModel.AppConfig" />
+          <EntitySet Name="DbMessengers" EntityType="SmartGatewayModel.DbMessenger" />
+          <EntitySet Name="EmailConfigs" EntityType="SmartGatewayModel.EmailConfig" />
+          <EntitySet Name="GatewayConfigs" EntityType="SmartGatewayModel.GatewayConfig" />
+          <EntitySet Name="IncomingCalls" EntityType="SmartGatewayModel.IncomingCall" />
+          <EntitySet Name="IncomingMessages" EntityType="SmartGatewayModel.IncomingMessage" />
+          <EntitySet Name="OutgoingCalls" EntityType="SmartGatewayModel.OutgoingCall" />
+          <EntitySet Name="OutgoingMessages" EntityType="SmartGatewayModel.OutgoingMessage" />
+          <EntitySet Name="Privileges" EntityType="SmartGatewayModel.Privilege" />
+          <EntitySet Name="Roles" EntityType="SmartGatewayModel.Role" />
+          <EntitySet Name="RolePrivilegeMaps" EntityType="SmartGatewayModel.RolePrivilegeMap" />
+          <EntitySet Name="TreeMenus" EntityType="SmartGatewayModel.TreeMenu" />
+          <EntitySet Name="Users" EntityType="SmartGatewayModel.User" />
+          <EntitySet Name="UserRoleMaps" EntityType="SmartGatewayModel.UserRoleMap" />
+        </EntityContainer>
+        <EntityType Name="AppConfig">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Module" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Module" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Configurable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DbMessenger">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Dsn" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DbTable" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="PollingInterval" Type="Int32" Nullable="false" />
+          <Property Name="RequiredAuth" Type="Boolean" Nullable="false" />
+          <Property Name="DbUserName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DbUserPassword" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="UniqMsgIdColName" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="UniqMsgIdColDataType" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MsgColName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DestNoColName" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MsgPriorityColName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MsgAlertColName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DefaultMsgPriority" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DefaultTextMsg" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DeleteAfterSending" Type="Boolean" Nullable="false" />
+          <Property Name="StatusColName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StatusTimestampColName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StatusColNewValue" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StatusColUpdateSuccessVal" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StatusColUpdateFailedValue" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StatusColUpdateSendingValue" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="AutoStart" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EmailConfig">
+          <Key>
+            <PropertyRef Name="SenderEmail" />
+            <PropertyRef Name="MailSubject" />
+            <PropertyRef Name="SmtpServer" />
+          </Key>
+          <Property Name="SenderEmail" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MailSubject" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="SmtpServer" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Authentication" Type="Boolean" />
+          <Property Name="UserName" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="GatewayConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="ComPort" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="BaudRate" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DataBits" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Parity" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="StopBits" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Handshake" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="OwnNumber" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Smsc" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="UseSimSmsc" Type="Boolean" />
+          <Property Name="Pin" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MessageValidity" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="LongMessageOption" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MessageMemory" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Functions" Type="Int64" />
+          <Property Name="LogSettings" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="ClearLogOnConnect" Type="Boolean" />
+          <Property Name="AutoConnect" Type="Boolean" />
+          <Property Name="Initialize" Type="Boolean" />
+          <Property Name="CommandTimeout" Type="Int64" />
+          <Property Name="ReadTimeout" Type="Int64" />
+          <Property Name="CommandDelay" Type="Int64" />
+          <Property Name="SendRetry" Type="Int64" />
+          <Property Name="SendDelay" Type="Int64" />
+          <Property Name="RequestStatusReport" Type="Boolean" />
+          <Property Name="SignalRefreshInterval" Type="Int64" />
+          <Property Name="AutoResponseCall" Type="Boolean" />
+          <Property Name="AutoResponseCallText" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="AutoArchiveLog" Type="Boolean" />
+          <Property Name="AutoArchiveLogInterval" Type="Int64" />
+          <Property Name="ArchiveOldMessageInterval" Type="Int64" />
+          <Property Name="ForwardArchivedMessage" Type="Boolean" />
+          <Property Name="ForwardEmail" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DeleteArchivedMessage" Type="Boolean" />
+          <Property Name="DeleteArchivedMessageInterval" Type="Int64" />
+          <Property Name="DeleteAfterRetrieve" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="IncomingCall">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallDate" Type="DateTime" Nullable="false" />
+          <Property Name="CallerId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="GatewayId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="IncomingMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Originator" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="OriginatorReceivedDate" Type="DateTime" />
+          <Property Name="Timezone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MessageType" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DeliveryStatus" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ReceivedDate" Type="DateTime" Nullable="false" />
+          <Property Name="ValidityTimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="OriginatorRefNo" Type="Int64" Nullable="false" />
+          <Property Name="MessageStatusType" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SrcPort" Type="Int64" Nullable="false" />
+          <Property Name="DestPort" Type="Int64" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RawMessage" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="GatewayId" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Indexes" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="OutgoingCall">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallDate" Type="DateTime" Nullable="false" />
+          <Property Name="CallerId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="GatewayId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="OutgoingMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Originator" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Recipient" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MessageType" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="MessageFormat" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Priority" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="ScheduledDate" Type="DateTime" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="MessageClass" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="SrcPort" Type="Int64" Nullable="false" />
+          <Property Name="DestPort" Type="Int64" Nullable="false" />
+          <Property Name="StatusReport" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="WapUrl" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="WapExpiryDate" Type="DateTime" />
+          <Property Name="WapCreateDate" Type="DateTime" />
+          <Property Name="WapSignal" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+          <Property Name="RefNo" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="SentDate" Type="DateTime" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Errors" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="GatewayId" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="GroupId" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Privilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Desc" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Desc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CanBeDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePrivilegeMap">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="PrivilegeId" />
+          </Key>
+          <Property Name="RoleId" Type="Int64" Nullable="false" />
+          <Property Name="PrivilegeId" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TreeMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ImageIndex" Type="Int64" />
+          <Property Name="SelectedImageIndex" Type="Int64" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="ActionClass" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Sequence" Type="Int64" />
+          <Property Name="Module" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Enabled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommonName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mobtel" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CanBeDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoleMap">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="RoleId" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartGatewayModelStoreContainer" CdmEntityContainer="SmartGatewayEntities">
+          <EntitySetMapping Name="AppConfigs"><EntityTypeMapping TypeName="SmartGatewayModel.AppConfig"><MappingFragment StoreEntitySet="AppConfig">
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Value" ColumnName="Value" />
+            <ScalarProperty Name="Module" ColumnName="Module" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Configurable" ColumnName="Configurable" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DbMessengers"><EntityTypeMapping TypeName="SmartGatewayModel.DbMessenger"><MappingFragment StoreEntitySet="DbMessenger">
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Dsn" ColumnName="Dsn" />
+            <ScalarProperty Name="DbTable" ColumnName="DbTable" />
+            <ScalarProperty Name="PollingInterval" ColumnName="PollingInterval" />
+            <ScalarProperty Name="RequiredAuth" ColumnName="RequiredAuth" />
+            <ScalarProperty Name="DbUserName" ColumnName="DbUserName" />
+            <ScalarProperty Name="DbUserPassword" ColumnName="DbUserPassword" />
+            <ScalarProperty Name="UniqMsgIdColName" ColumnName="UniqMsgIdColName" />
+            <ScalarProperty Name="UniqMsgIdColDataType" ColumnName="UniqMsgIdColDataType" />
+            <ScalarProperty Name="MsgColName" ColumnName="MsgColName" />
+            <ScalarProperty Name="DestNoColName" ColumnName="DestNoColName" />
+            <ScalarProperty Name="MsgPriorityColName" ColumnName="MsgPriorityColName" />
+            <ScalarProperty Name="MsgAlertColName" ColumnName="MsgAlertColName" />
+            <ScalarProperty Name="DefaultMsgPriority" ColumnName="DefaultMsgPriority" />
+            <ScalarProperty Name="DefaultTextMsg" ColumnName="DefaultTextMsg" />
+            <ScalarProperty Name="DeleteAfterSending" ColumnName="DeleteAfterSending" />
+            <ScalarProperty Name="StatusColName" ColumnName="StatusColName" />
+            <ScalarProperty Name="StatusTimestampColName" ColumnName="StatusTimestampColName" />
+            <ScalarProperty Name="StatusColNewValue" ColumnName="StatusColNewValue" />
+            <ScalarProperty Name="StatusColUpdateSuccessVal" ColumnName="StatusColUpdateSuccessVal" />
+            <ScalarProperty Name="StatusColUpdateFailedValue" ColumnName="StatusColUpdateFailedValue" />
+            <ScalarProperty Name="StatusColUpdateSendingValue" ColumnName="StatusColUpdateSendingValue" />
+            <ScalarProperty Name="AutoStart" ColumnName="AutoStart" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EmailConfigs"><EntityTypeMapping TypeName="SmartGatewayModel.EmailConfig"><MappingFragment StoreEntitySet="EmailConfig">
+            <ScalarProperty Name="SenderEmail" ColumnName="SenderEmail" />
+            <ScalarProperty Name="MailSubject" ColumnName="MailSubject" />
+            <ScalarProperty Name="SmtpServer" ColumnName="SmtpServer" />
+            <ScalarProperty Name="Authentication" ColumnName="Authentication" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="GatewayConfigs"><EntityTypeMapping TypeName="SmartGatewayModel.GatewayConfig"><MappingFragment StoreEntitySet="GatewayConfig">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="ComPort" ColumnName="ComPort" />
+            <ScalarProperty Name="BaudRate" ColumnName="BaudRate" />
+            <ScalarProperty Name="DataBits" ColumnName="DataBits" />
+            <ScalarProperty Name="Parity" ColumnName="Parity" />
+            <ScalarProperty Name="StopBits" ColumnName="StopBits" />
+            <ScalarProperty Name="Handshake" ColumnName="Handshake" />
+            <ScalarProperty Name="OwnNumber" ColumnName="OwnNumber" />
+            <ScalarProperty Name="Smsc" ColumnName="Smsc" />
+            <ScalarProperty Name="UseSimSmsc" ColumnName="UseSimSmsc" />
+            <ScalarProperty Name="Pin" ColumnName="Pin" />
+            <ScalarProperty Name="MessageValidity" ColumnName="MessageValidity" />
+            <ScalarProperty Name="LongMessageOption" ColumnName="LongMessageOption" />
+            <ScalarProperty Name="MessageMemory" ColumnName="MessageMemory" />
+            <ScalarProperty Name="Functions" ColumnName="Functions" />
+            <ScalarProperty Name="LogSettings" ColumnName="LogSettings" />
+            <ScalarProperty Name="ClearLogOnConnect" ColumnName="ClearLogOnConnect" />
+            <ScalarProperty Name="AutoConnect" ColumnName="AutoConnect" />
+            <ScalarProperty Name="Initialize" ColumnName="Initialize" />
+            <ScalarProperty Name="CommandTimeout" ColumnName="CommandTimeout" />
+            <ScalarProperty Name="ReadTimeout" ColumnName="ReadTimeout" />
+            <ScalarProperty Name="CommandDelay" ColumnName="CommandDelay" />
+            <ScalarProperty Name="SendRetry" ColumnName="SendRetry" />
+            <ScalarProperty Name="SendDelay" ColumnName="SendDelay" />
+            <ScalarProperty Name="RequestStatusReport" ColumnName="RequestStatusReport" />
+            <ScalarProperty Name="SignalRefreshInterval" ColumnName="SignalRefreshInterval" />
+            <ScalarProperty Name="AutoResponseCall" ColumnName="AutoResponseCall" />
+            <ScalarProperty Name="AutoResponseCallText" ColumnName="AutoResponseCallText" />
+            <ScalarProperty Name="AutoArchiveLog" ColumnName="AutoArchiveLog" />
+            <ScalarProperty Name="AutoArchiveLogInterval" ColumnName="AutoArchiveLogInterval" />
+            <ScalarProperty Name="ArchiveOldMessageInterval" ColumnName="ArchiveOldMessageInterval" />
+            <ScalarProperty Name="ForwardArchivedMessage" ColumnName="ForwardArchivedMessage" />
+            <ScalarProperty Name="ForwardEmail" ColumnName="ForwardEmail" />
+            <ScalarProperty Name="DeleteArchivedMessage" ColumnName="DeleteArchivedMessage" />
+            <ScalarProperty Name="DeleteArchivedMessageInterval" ColumnName="DeleteArchivedMessageInterval" />
+            <ScalarProperty Name="DeleteAfterRetrieve" ColumnName="DeleteAfterRetrieve" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="IncomingCalls"><EntityTypeMapping TypeName="SmartGatewayModel.IncomingCall"><MappingFragment StoreEntitySet="IncomingCall">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+            <ScalarProperty Name="CallerId" ColumnName="CallerId" />
+            <ScalarProperty Name="GatewayId" ColumnName="GatewayId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="IncomingMessages"><EntityTypeMapping TypeName="SmartGatewayModel.IncomingMessage"><MappingFragment StoreEntitySet="IncomingMessage">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Originator" ColumnName="Originator" />
+            <ScalarProperty Name="OriginatorReceivedDate" ColumnName="OriginatorReceivedDate" />
+            <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+            <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+            <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+            <ScalarProperty Name="ValidityTimeStamp" ColumnName="ValidityTimeStamp" />
+            <ScalarProperty Name="OriginatorRefNo" ColumnName="OriginatorRefNo" />
+            <ScalarProperty Name="MessageStatusType" ColumnName="MessageStatusType" />
+            <ScalarProperty Name="SrcPort" ColumnName="SrcPort" />
+            <ScalarProperty Name="DestPort" ColumnName="DestPort" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="RawMessage" ColumnName="RawMessage" />
+            <ScalarProperty Name="GatewayId" ColumnName="GatewayId" />
+            <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Indexes" ColumnName="Indexes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OutgoingCalls"><EntityTypeMapping TypeName="SmartGatewayModel.OutgoingCall"><MappingFragment StoreEntitySet="OutgoingCall">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+            <ScalarProperty Name="CallerId" ColumnName="CallerId" />
+            <ScalarProperty Name="GatewayId" ColumnName="GatewayId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OutgoingMessages"><EntityTypeMapping TypeName="SmartGatewayModel.OutgoingMessage"><MappingFragment StoreEntitySet="OutgoingMessage">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Originator" ColumnName="Originator" />
+            <ScalarProperty Name="Recipient" ColumnName="Recipient" />
+            <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+            <ScalarProperty Name="MessageFormat" ColumnName="MessageFormat" />
+            <ScalarProperty Name="Priority" ColumnName="Priority" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="MessageClass" ColumnName="MessageClass" />
+            <ScalarProperty Name="SrcPort" ColumnName="SrcPort" />
+            <ScalarProperty Name="DestPort" ColumnName="DestPort" />
+            <ScalarProperty Name="StatusReport" ColumnName="StatusReport" />
+            <ScalarProperty Name="WapUrl" ColumnName="WapUrl" />
+            <ScalarProperty Name="WapExpiryDate" ColumnName="WapExpiryDate" />
+            <ScalarProperty Name="WapCreateDate" ColumnName="WapCreateDate" />
+            <ScalarProperty Name="WapSignal" ColumnName="WapSignal" />
+            <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+            <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+            <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Errors" ColumnName="Errors" />
+            <ScalarProperty Name="GatewayId" ColumnName="GatewayId" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Privileges"><EntityTypeMapping TypeName="SmartGatewayModel.Privilege"><MappingFragment StoreEntitySet="Privilege">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Desc" ColumnName="Desc" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Roles"><EntityTypeMapping TypeName="SmartGatewayModel.Role"><MappingFragment StoreEntitySet="Role">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Desc" ColumnName="Desc" />
+            <ScalarProperty Name="CanBeDeleted" ColumnName="CanBeDeleted" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RolePrivilegeMaps"><EntityTypeMapping TypeName="SmartGatewayModel.RolePrivilegeMap"><MappingFragment StoreEntitySet="RolePrivilegeMap">
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            <ScalarProperty Name="PrivilegeId" ColumnName="PrivilegeId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TreeMenus"><EntityTypeMapping TypeName="SmartGatewayModel.TreeMenu"><MappingFragment StoreEntitySet="TreeMenu">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="ImageIndex" ColumnName="ImageIndex" />
+            <ScalarProperty Name="SelectedImageIndex" ColumnName="SelectedImageIndex" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="ActionClass" ColumnName="ActionClass" />
+            <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+            <ScalarProperty Name="Module" ColumnName="Module" />
+            <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="SmartGatewayModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+            <ScalarProperty Name="Mobtel" ColumnName="Mobtel" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="CanBeDeleted" ColumnName="CanBeDeleted" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserRoleMaps"><EntityTypeMapping TypeName="SmartGatewayModel.UserRoleMap"><MappingFragment StoreEntitySet="UserRoleMap">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SmartGateway">
+        <EntityTypeShape EntityType="SmartGatewayModel.AppConfig" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7566536458333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.DbMessenger" Width="1.5" PointX="2.75" PointY="0.75" Height="5.0436002604166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.EmailConfig" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.GatewayConfig" Width="1.5" PointX="4.75" PointY="3.75" Height="6.8514208984375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.IncomingCall" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.IncomingMessage" Width="1.5" PointX="0.75" PointY="6.75" Height="4.0575162760416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.OutgoingCall" Width="1.5" PointX="6.75" PointY="3.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.OutgoingMessage" Width="1.5" PointX="6.75" PointY="6.75" Height="5.0436002604166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.Privilege" Width="1.5" PointX="8.75" PointY="0.75" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.Role" Width="1.5" PointX="8.75" PointY="3.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.RolePrivilegeMap" Width="1.5" PointX="8.75" PointY="6.75" Height="1.2636116536458353" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.TreeMenu" Width="1.5" PointX="8.75" PointY="9.75" Height="2.4140429687500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.User" Width="1.5" PointX="10.75" PointY="0.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartGatewayModel.UserRoleMap" Width="1.5" PointX="10.75" PointY="3.75" Height="1.2636116536458388" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

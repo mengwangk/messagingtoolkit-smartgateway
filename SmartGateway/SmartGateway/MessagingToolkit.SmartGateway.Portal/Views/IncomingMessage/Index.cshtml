@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<MessagingToolkit.SmartGateway.Portal.IncomingMessage>
+
+@{
+    ViewBag.Title = "Incoming Message";
+}
+
+<h2>Incoming Message</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by originator: @Html.TextBox("SearchOriginator", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="Search" /></p>
+}
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("From", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })            
+        </th>
+        <th>
+            Timezone
+        </th>
+        <th>
+            Message
+        </th>
+        <th>
+           @Html.ActionLink("Received Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })           
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Originator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timezone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedDate)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+    &nbsp;
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw("&nbsp;");
+        @:< Prev
+    }
+    &nbsp;
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw("&nbsp;")
+        @:>>
+    }
+</div>

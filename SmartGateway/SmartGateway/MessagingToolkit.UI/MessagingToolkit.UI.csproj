@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DC9A638-7BE8-4CF7-AC2E-57C77F1BF9BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MessagingToolkit.UI</RootNamespace>
+    <AssemblyName>MessagingToolkit.UI</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>MessagingToolkit.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ListView\Adornments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Attributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\CellEditors.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\Comparers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\DataListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\Decorations.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\DragSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\DropSink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Events.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\Filters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Generator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\GlassPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListView\Groups.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\HeaderControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Munger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\NativeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\ObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\ObjectListView.DesignTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Overlays.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\Renderers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\Styles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\ToolTipControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\TreeListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListView\TypedObjectListView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\VirtualGroups.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\VirtualListDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListView\VirtualObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Splitter\MTSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\Design\NavigateBarDesigner.cs" />
+    <Compile Include="Navigation Pane\Design\NavigateBarActionList.cs" />
+    <Compile Include="Navigation Pane\NavigateBarSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarButtonCancelEventArgs.cs" />
+    <Compile Include="Navigation Pane\NavigateBarCollapseButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarColorTable.cs" />
+    <Compile Include="Navigation Pane\NavigateBarRenderer.cs">
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarRelatedControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarCollapsibleText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarHelper.cs" />
+    <Compile Include="Navigation Pane\NavigateBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarCaption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarCaptionDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarOverFlowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarOverFlowPanelButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarOverFlowPanelMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarButtonEventArgs.cs" />
+    <Compile Include="Navigation Pane\NavigateBarCollapsibleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarSettings.cs" />
+    <Compile Include="Navigation Pane\NavigateBarOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarOptions.Designer.cs">
+      <DependentUpon>NavigateBarOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation Pane\NavigateBarButtonCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Navigation Pane\NavigateBarOptions.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NavigateBarOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Wizard\AllowClose.cs" />
+    <Compile Include="Wizard\BaseExteriorStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\BaseInteriorStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\BaseStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\BaseWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizard\Collections.cs" />
+    <Compile Include="Wizard\Controls\BulletList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Wizard\Controls\LineFrame.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Wizard\PageLayout.cs" />
+    <Compile Include="Wizard\ShowStepEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NavigateBar.bmp" />
+    <EmbeddedResource Include="Wizard\BaseExteriorStep.resx">
+      <DependentUpon>BaseExteriorStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\BaseInteriorStep.resx">
+      <DependentUpon>BaseInteriorStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\BaseStep.resx">
+      <DependentUpon>BaseStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\BaseWizard.resx">
+      <DependentUpon>BaseWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\Controls\LineFrame.resx">
+      <DependentUpon>LineFrame.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MessagingToolkit.snk" />
+    <None Include="Resources\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Wizard\wizard.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Wizard\wizardSide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Wizard\wizardSideLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MMS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ListView\CustomDictionary.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

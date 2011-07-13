@@ -1,0 +1,135 @@
+﻿@model MessagingToolkit.SmartGateway.Portal.OutgoingMessage
+
+@{
+    ViewBag.Title = "Message Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OutgoingMessage</legend>
+
+    <div class="display-label">Originator</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Originator)
+    </div>
+
+    <div class="display-label">Recipient</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Recipient)
+    </div>
+
+    <div class="display-label">MessageType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageType)
+    </div>
+
+    <div class="display-label">MessageFormat</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageFormat)
+    </div>
+
+    <div class="display-label">Priority</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Priority)
+    </div>
+
+    <div class="display-label">Message</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">ScheduledDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScheduledDate)
+    </div>
+
+    <div class="display-label">Quantity</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+
+    <div class="display-label">MessageClass</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageClass)
+    </div>
+
+    <div class="display-label">SrcPort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SrcPort)
+    </div>
+
+    <div class="display-label">DestPort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DestPort)
+    </div>
+
+    <div class="display-label">StatusReport</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StatusReport)
+    </div>
+
+    <div class="display-label">WapUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WapUrl)
+    </div>
+
+    <div class="display-label">WapExpiryDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WapExpiryDate)
+    </div>
+
+    <div class="display-label">WapCreateDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WapCreateDate)
+    </div>
+
+    <div class="display-label">WapSignal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WapSignal)
+    </div>
+
+    <div class="display-label">LastUpdate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdate)
+    </div>
+
+    <div class="display-label">RefNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RefNo)
+    </div>
+
+    <div class="display-label">SentDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SentDate)
+    </div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">Errors</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Errors)
+    </div>
+
+    <div class="display-label">GatewayId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GatewayId)
+    </div>
+
+    <div class="display-label">CreateDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreateDate)
+    </div>
+
+    <div class="display-label">GroupId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GroupId)
+    </div>
+</fieldset>
+<p>
+    <!--@Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |-->
+    @Html.ActionLink("Back to List", "Index")
+</p>
