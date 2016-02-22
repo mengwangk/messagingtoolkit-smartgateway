@@ -14,4 +14,4 @@ Unzip the file, and overwrite System.Data.SQLite.dll and System.Data.SQLite.Linq
 
 Modify web.config under Portal folder, for the following section
 
-![Message View](/Downloads/message_view.jpg?raw=true "Message View")
+![Message View](/Downloads/message_view.png?raw=true "Message View")
