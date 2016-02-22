@@ -13,3 +13,5 @@ Please download SQLite library for x64.
 Unzip the file, and overwrite System.Data.SQLite.dll and System.Data.SQLite.Linq.dll under the and \Portal\bin.
 
 Modify web.config under Portal folder, for the following section
+
+![Message View](/Downloads/message_view.jpg?raw=true "Message View")
