@@ -14,4 +14,12 @@ Download for the current beta is available [here](/Downloads).
 
 3. Modify web.config under Portal folder, for the following section
 
+```
+<add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" />
+```
+
+```
+<add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
+```
+
 ![Message View](/Downloads/message_view.png?raw=true "Message View")
