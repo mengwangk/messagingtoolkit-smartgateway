@@ -1,7 +1,7 @@
 # MessagingToolkit SmartGateway
 ###### SMS and MMS gateway
 
-MessagingToolkit SmartGateway is an application built on top of the [MessagingToolkit](https://www.twit88.com/) library which can be used to send and receive SMS.
+MessagingToolkit SmartGateway is an application built on top of the [MessagingToolkit](http://www.twit88.com/) library which can be used to send and receive SMS.
 
 Download for the current beta is available [here](/Downloads).
 
