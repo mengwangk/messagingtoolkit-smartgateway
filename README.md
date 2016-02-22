@@ -23,6 +23,6 @@ to
 <add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
 ```
 
-You can also preview some of the screenshots at ScreenShots and download the latest source code from the GitHub repository
+You can also preview some of the [screenshots](/Screenshot.md) and download the latest source code from the GitHub repository
 
 ![Main Screen](/Downloads/main_screen.png?raw=true "Main Screen View")
