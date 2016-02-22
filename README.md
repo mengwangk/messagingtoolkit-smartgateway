@@ -1,8 +1,7 @@
-
 # MessagingToolkit SmartGateway
 ###### SMS and MMS gateway
 
-MessagingToolkit SmartGateway is an application built on top of the [MessagingToolkit](https://www.twit88.com.com/) library which can be used to send and receive SMS.
+MessagingToolkit SmartGateway is an application built on top of the [MessagingToolkit](https://www.twit88.com/) library which can be used to send and receive SMS.
 
 Download for the current beta is available [here](/Downloads).
 
@@ -22,4 +21,6 @@ Download for the current beta is available [here](/Downloads).
 <add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
 ```
 
-![Message View](/Downloads/message_view.png?raw=true "Message View")
+You can also preview some of the screenshots at ScreenShots and download the latest source code from the GitHub repository
+
+![Main Screen](/Downloads/main_screen.png?raw=true "Main Screen View")
